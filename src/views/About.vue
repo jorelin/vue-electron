@@ -18,7 +18,7 @@ import { PropData } from "./views";
 export default class About extends Vue {
   comp = "about";
   public compData: PropData = {
-    msg: "this is home",
+    msg: "this is home,test",
     key: 2
   };
 }
