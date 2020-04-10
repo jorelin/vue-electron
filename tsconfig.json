@@ -1,27 +1,29 @@
 {
   "compilerOptions": {
-    "target": "esnext",
+    // compilerOptions 编译选项：https://www.tslang.cn/docs/handbook/compiler-options.html
+    "target": "esnext", // 
     "module": "esnext",
     "strict": true,
     "jsx": "preserve",
+    "allowJs": true, // 允许使用js、jsx
     "importHelpers": true,
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
-    "baseUrl": ".",
+    "baseUrl": ".", // 设置baseUrl来告诉编译器到哪里去查找模块, 这里设置的是根目录
     "types": [
       "webpack-env",
       "mocha",
       "chai"
     ],
-    "paths": {
+    "paths": { // "paths"是相对于"baseUrl"进行解析
       "@/*": [
         "src/*"
       ]
     },
-    "lib": [
+    "lib": [ // 编译过程中需要引入的库文件的列表
       "esnext",
       "dom",
       "dom.iterable",
@@ -33,7 +35,8 @@
     "src/**/*.tsx",
     "src/**/*.vue",
     "tests/**/*.ts",
-    "tests/**/*.tsx"
+    "tests/**/*.tsx",
+    "src/jsLib/*.js", //添加引入js的文件夹，js文件都放到这个路径下
   ],
   "exclude": [
     "node_modules"
