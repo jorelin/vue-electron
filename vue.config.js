@@ -2,7 +2,7 @@
  * @Author: shiyuanyuan
  * @Date: 2020-04-02 18:22:28
  * @LastEditors: shiyuanyuan
- * @LastEditTime: 2020-04-10 19:16:27
+ * @LastEditTime: 2020-04-13 11:08:43
  * @Description: webpack配置
  */
 
@@ -13,5 +13,5 @@ module.exports = {
     port: 8888, //端口
     compress: true //对所有服务启用gzip压缩
   },
-  publicPath: "",//桌面端生成html文件的路径需要更改
+  publicPath: "/",//桌面端生成html文件的路径需要更改
 };

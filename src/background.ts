@@ -1,16 +1,18 @@
 "use strict";
 
-import { app, protocol, BrowserWindow } from "electron";
+import { app, protocol, BrowserWindow, Menu } from "electron";
 import {
   createProtocol
   /* installVueDevtools */
 } from "vue-cli-plugin-electron-builder/lib";
+import templateMenu from './electron/menuWindow';
 const isDevelopment = process.env.NODE_ENV !== "production";
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win: BrowserWindow | null;
 
+const menu = Menu.buildFromTemplate(templateMenu)
 // Scheme must be registered before the app is ready
 protocol.registerSchemesAsPrivileged([
   { scheme: "app", privileges: { secure: true, standard: true } }
@@ -61,7 +63,7 @@ app.on("activate", () => {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
-app.on("ready", async () => {
+app.on("ready", async () => { 
   if (isDevelopment && !process.env.IS_TEST) {
     // Install Vue Devtools
     // Devtools extensions are broken in Electron 6.0.0 and greater
@@ -75,6 +77,8 @@ app.on("ready", async () => {
     //   console.error('Vue Devtools failed to install:', e.toString())
     // }
   }
+  // 设置窗口菜单栏  
+  Menu.setApplicationMenu(menu)
   createWindow();
 });
 
