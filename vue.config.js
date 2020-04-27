@@ -2,7 +2,7 @@
  * @Author: shiyuanyuan
  * @Date: 2020-04-02 18:22:28
  * @LastEditors: shiyuanyuan
- * @LastEditTime: 2020-04-13 16:54:06
+ * @LastEditTime: 2020-04-22 16:59:41
  * @Description: webpack配置
  */
 
@@ -15,14 +15,7 @@ module.exports = {
   },
   css: {
     loaderOptions: {
-      less: { //antd定制颜色
-        modifyVars: {
-          'primary-color': '#1DA57A',
-          'link-color': '#1DA57A',
-          'border-radius-base': '2px',
-        },
-        javascriptEnabled: true,
-      },
+      
     },
   },
   publicPath: "/",//桌面端生成html文件的路径需要更改

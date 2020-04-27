@@ -2,7 +2,7 @@
  * @Author: shiyuanyuan
  * @Date: 2020-04-03 16:46:35
  * @LastEditors: shiyuanyuan
- * @LastEditTime: 2020-04-13 15:26:22
+ * @LastEditTime: 2020-04-27 15:40:19
  * @Description: 
  -->
 
@@ -13,22 +13,23 @@
     <p>Message is: {{ message }}</p>
    
     <p>{{ msss }}</p>
-    <a-button type="primary" @click="show">Primary</a-button>
-    <!-- <Button type="primary" @click="show">验证</Button> -->
+    <button type="primary" @click="show">验证</button>
   </div>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from "vue-property-decorator";
-import { Button } from 'ant-design-vue';
+import { Component, Prop, Vue, Watch } from "vue-property-decorator";
 interface Person {
   name: string;
   age: number;
-  
 }
-Vue.use(Button);
 @Component
 export default class AboutVue extends Vue {
   @Prop({ type: Object }) readonly comp!: { key: number; name: string };
+  @Prop({ type: String }) readonly cname!: string;
+  @Watch('msss')
+  onMsssChanged(){
+    console.log('change mssss。。。。。')
+  }
   private message = "www";
   private msss = 1999;
   private person: Person = {
@@ -37,7 +38,7 @@ export default class AboutVue extends Vue {
   };
   show(): boolean {
     this.msss++;
-    console.log(this.msss, this.person.name, this.comp.key);
+    console.log(this.msss, this.person.name, this.comp.key,this.$props);
     return this.msss > 0;
   }
 }

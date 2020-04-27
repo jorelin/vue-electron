@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <HelloWorld msg="Welcome to Your Vue.js App" />
-    <AboutVue :comp="compData" />
+    <AboutVue :comp="compData" cname = "hello" />
   </div>
 </template>
 
@@ -11,7 +11,6 @@ import { Component, Vue } from "vue-property-decorator";
 import { myKey, PropData, cloneShadow } from "./views";
 import HelloWorld from "@/container/Home/HelloWorld.vue";
 import AboutVue from "@/container/About/About.vue";
-
 
 @Component({
   components: {
